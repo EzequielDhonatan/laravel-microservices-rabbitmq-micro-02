@@ -19,6 +19,7 @@ Route::group(
     /*
     ================================================== */
     Route::get( 'evaluation/{company}', [ EvaluationController::class, 'index' ] ); ## EVALUATION
+    Route::post( 'evaluation/{company}', [ EvaluationController::class, 'store' ] ); ## EVALUATION
 
 }); // Route::group
 

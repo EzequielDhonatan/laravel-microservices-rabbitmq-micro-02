@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Api\V1\Evaluation\Evaluation;
 use App\Http\Resources\Api\V1\Evaluation\EvaluationResource;
+use App\Http\Requests\Api\V1\Evaluation\StoreUpdateFormRequest;
 
 class EvaluationController extends Controller
 {
@@ -35,9 +36,11 @@ class EvaluationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( StoreUpdateFormRequest $request, $company )
     {
-        //
+        $evaluation = $this->repository->create( $request->validated() );
+
+        return new EvaluationResource( $evaluation );
     }
 
 } // EvaluationController
