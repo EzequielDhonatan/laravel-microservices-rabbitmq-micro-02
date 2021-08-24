@@ -6,12 +6,12 @@ Este microservice 02 depende do microservice 01, portanto, primeiramente subir o
 ### Instalação
 Clonar Projeto
 ```sh
-//
+https://github.com/ezequieldhonatan/laravel-microservices-rabbitmq-micro-02
 ```
 
 Acessar o projeto
 ```sh
-//
+laravel-microservices-rabbitmq-micro-02
 ```
 
 Criar o Arquivo .env
