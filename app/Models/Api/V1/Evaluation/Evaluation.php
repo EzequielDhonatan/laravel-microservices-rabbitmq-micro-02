@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Evaluation;
+namespace App\Models\Api\V1\Evaluation;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
