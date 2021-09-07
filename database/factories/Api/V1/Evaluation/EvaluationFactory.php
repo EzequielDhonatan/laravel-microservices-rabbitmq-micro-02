@@ -25,7 +25,7 @@ class EvaluationFactory extends Factory
     {
         return [
 
-            'company'       => (string) Str::uuid(),
+            'company'       => ( string ) Str::uuid(),
             'stars'         => $this->faker->sentence( 10 ),
             'comment'       => 5
 

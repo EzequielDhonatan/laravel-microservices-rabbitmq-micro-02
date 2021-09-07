@@ -18,7 +18,7 @@ class CreateEvaluationsTable extends Migration
 
             /* DADOS DA AVALIAÇÃO
             ================================================== */
-            $table->uuid( 'company' )->unique(); ## UUID
+            $table->uuid( 'company' ); ## UUID
 
             $table->integer( 'stars' ); ## ESTRELAS
             $table->text( 'comment' ); ## COMENTÁRIO
