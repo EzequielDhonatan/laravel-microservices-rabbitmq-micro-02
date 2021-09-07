@@ -8,14 +8,16 @@ use Illuminate\Http\Request;
 use App\Models\Api\V1\Evaluation\Evaluation;
 use App\Http\Resources\Api\V1\Evaluation\EvaluationResource;
 use App\Http\Requests\Api\V1\Evaluation\StoreUpdateFormRequest;
+use App\Services\Api\V1\Company\CompanyService;
 
 class EvaluationController extends Controller
 {
     protected $repository;
 
-    public function __construct( Evaluation $model )
+    public function __construct( Evaluation $model, CompanyService $companyService )
     {
-        $this->repository = $model;
+        $this->repository       = $model;
+        $this->companyService   = $companyService;
     }
 
     /**
@@ -38,9 +40,14 @@ class EvaluationController extends Controller
      */
     public function store( StoreUpdateFormRequest $request, $company )
     {
+        $response = $this->companyService->getCompany( $company );
+
+        if ( $status = $response->status() != 200 )
+            return response()->json( [ 'message' => 'Invalid Company' ], $status );
+
         $evaluation = $this->repository->create( $request->validated() );
 
-        return new EvaluationResource( $evaluation );
+        return new EvaluationResource( $evaluation ); // Retorna uma "Resource/Collection"
     }
 
 } // EvaluationController
